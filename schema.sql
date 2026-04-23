@@ -1,17 +1,18 @@
-CREATE TABLE users (
-    id INTEGER AUTO_INCREMENT PRIMARY KEY, 
-    email VARCHAR(100) NOT NULL UNIQUE, 
-    password VARCHAR(100) NOT NULL, 
-    isAdmin BOOLEAN DEFAULT false, 
-    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+
+--CREATE TABLE users (
+ --   id INTEGER AUTO_INCREMENT PRIMARY KEY, 
+--    email VARCHAR(100) NOT NULL UNIQUE, 
+ --   password VARCHAR(100) NOT NULL, 
+ --   isAdmin BOOLEAN DEFAULT false, 
+--    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+--);
 -- information will be gathered based on state information 
 -- collected from the current html session not a logged in user
 -- customer could decide later to create an account and log in both will work the same 
 CREATE TABLE shoppingCart (
     id INTEGER AUTO_INCREMENT PRIMARY KEY, 
-    sessionId VARCHAR(255) NULL, 
-    userId INTEGER NULL,
+    sessionId VARCHAR(255) NOT NULL, 
+  --  userId INTEGER NULL,
     productId INTEGER NOT NULL, 
     quantity INTEGER NOT NULL DEFAULT 1, 
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
