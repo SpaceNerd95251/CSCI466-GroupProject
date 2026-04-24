@@ -9,8 +9,8 @@ identifiers or intersection data. Other attributes do not need to be drawn, but 
 their names, their purpose, and any additional data that is important to know. This can be a part of your ER diagram PDF, or a
 separate PDF file, but it must be present and easy to find.
 CSCI 466 Group Project (Spring 2026) 3 of 3
-- [ ] 3. In a PDF, include the relational schema of the database, converted from the ER diagram. Include information on which at-
-tributes are primary/foreign keys, and make sure to identify what the home relation is for the foreign keys used. This can be
+- [ ] 3. In a PDF, include the relational schema of the database, converted from the ER diagram. Include information on which attributes
+are primary/foreign keys, and make sure to identify what the home relation is for the foreign keys used. This can be
 in the same PDF, or a separate one, but it must be present and in an obvious location. It should be based on the ER diagram
 from before. We will check to make sure it matches, so make sure that any changes made are applied to the ER diagram and the
 schema here.
