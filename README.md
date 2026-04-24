@@ -22,3 +22,12 @@ This should include at least 20 different products (of your choice), 5 customers
 - [ ] 7. A web link to your group’s application running on the student web server. This can be served from any of the group members'
 `public_html` on turing/hopper, but it does need to be working there to facilitate grading. Make sure not to delete the
 implementation until after grading has been completed.
+
+## Pages Needed
+- [ ] Product page (for product descriptions)
+- [ ] Main storefront pages
+- [ ] Header file (goes on every page)
+- [ ] Order page for user
+- [ ] Order page for admin
+- [ ] Shopping cart page
+- [ ] Checkout page
