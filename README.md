@@ -5,7 +5,7 @@ step, and the other steps should be based upon this ER diagram. It would be best
 if no one in your group can make that happen, then hand-drawn and scanned diagrams will be accepted, but legibility will be
 critical and points will be lost for anything a grader cannot read. All entities and relationships must be drawn, along with any
 identifiers or intersection data. Other attributes do not need to be drawn, but must appear in…
-- [x] 2. … a description of all of the entities, relationships, and attributes that are a part of your ER diagram. This will obviously include
+- [ ] 2. … a description of all of the entities, relationships, and attributes that are a part of your ER diagram. This will obviously include
 their names, their purpose, and any additional data that is important to know. This can be a part of your ER diagram PDF, or a
 separate PDF file, but it must be present and easy to find.
 CSCI 466 Group Project (Spring 2026) 3 of 3
