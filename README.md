@@ -1,5 +1,5 @@
 # CSCI466-GroupProject
-## Requirements
+## Overrall Requirements
 - [x] 1. The ER diagram (in PDF format) that you designed for the database that is used for the application. This should be your first
 step, and the other steps should be based upon this ER diagram. It would be best to draw this with some sort of software, but
 if no one in your group can make that happen, then hand-drawn and scanned diagrams will be accepted, but legibility will be
@@ -23,7 +23,7 @@ This should include at least 20 different products (of your choice), 5 customers
 `public_html` on turing/hopper, but it does need to be working there to facilitate grading. Make sure not to delete the
 implementation until after grading has been completed.
 
-## Pages Needed
+## Webpages Needed
 - [ ] Product page (for product descriptions)
 - [ ] Main storefront pages
 - [ ] Header file (goes on every page)
