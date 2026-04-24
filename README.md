@@ -23,7 +23,7 @@ This should include at least 20 different products (of your choice), 5 customers
 `public_html` on turing/hopper, but it does need to be working there to facilitate grading. Make sure not to delete the
 implementation until after grading has been completed.
 
-## Webpages Needed
+## Webpages Needed (HTML/PHP Stuff)
 - [ ] Product page (for product descriptions)
 - [ ] Main storefront pages
 - [ ] Header file (goes on every page)
