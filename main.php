@@ -2,8 +2,6 @@
     $title = "Products";
     require 'header.php'; 
     require 'database/database.php'; 
-    require 'footer.php';
-
     // get all products
     $stmt = $pdo->query("SELECT * FROM products ORDER BY name"); 
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -33,3 +31,4 @@
 
     <hr>
 <?php } ?>
+<?php require 'footer.php'; ?>
