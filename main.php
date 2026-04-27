@@ -2,6 +2,7 @@
     $title = "Products";
     require 'header.php'; 
     require 'database/database.php'; 
+    require 'footer.php';
 
     // get all products
     $stmt = $pdo->query("SELECT * FROM products ORDER BY name"); 
