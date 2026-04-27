@@ -17,7 +17,7 @@ CREATE TABLE shoppingCart (
     quantity INTEGER NOT NULL DEFAULT 1, 
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (productId) REFERENCES products(id),
-    FOREIGN KEY (userId) REFERENCES users(id),
+ --   FOREIGN KEY (userId) REFERENCES users(id),
     UNIQUE(sessionId, productId)
 ); 
 
@@ -47,7 +47,7 @@ CREATE TABLE orders (
     state VARCHAR(2), 
     zipcode VARCHAR(5),
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (userId) REFERENCES users(id)
+   -- FOREIGN KEY (userId) REFERENCES users(id)
 );
 
 CREATE TABLE orderItems ( 
