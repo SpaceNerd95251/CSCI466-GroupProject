@@ -1,14 +1,29 @@
 
---CREATE TABLE users (
+-- CREATE TABLE users (
  --   id INTEGER AUTO_INCREMENT PRIMARY KEY, 
 --    email VARCHAR(100) NOT NULL UNIQUE, 
  --   password VARCHAR(100) NOT NULL, 
  --   isAdmin BOOLEAN DEFAULT false, 
 --    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
---);
+-- );
 -- information will be gathered based on state information 
 -- collected from the current html session not a logged in user
 -- customer could decide later to create an account and log in both will work the same 
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS shoppingCart;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS orderItems;
+
+CREATE TABLE products ( 
+    id INTEGER AUTO_INCREMENT PRIMARY KEY, 
+    name VARCHAR(50) NOT NULL, 
+    description TEXT, 
+    price DECIMAL(10, 2) NOT NULL, 
+    -- defaults to picture of NO IMAGE AVAILABLE might have to change depending on sizing wait to update this value 
+    imageUrl VARCHAR(255),
+    stock INTEGER DEFAULT 0, 
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 CREATE TABLE shoppingCart (
     id INTEGER AUTO_INCREMENT PRIMARY KEY, 
     sessionId VARCHAR(255) NOT NULL, 
@@ -21,16 +36,6 @@ CREATE TABLE shoppingCart (
     UNIQUE(sessionId, productId)
 ); 
 
-CREATE TABLE products ( 
-    id INTEGER AUTO_INCREMENT PRIMARY KEY, 
-    name VARCHAR(50) NOT NULL, 
-    description TEXT, 
-    price DECIMAL(10, 2) NOT NULL, 
-    -- defaults to picture of NO IMAGE AVAILABLE might have to change depending on sizing wait to update this value 
-    imageUrl VARCHAR(255) DEFAULT 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg',
-    stock INTEGER DEFAULT 0, 
-    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
 
 CREATE TABLE orders ( 
     id INTEGER AUTO_INCREMENT PRIMARY KEY, 
@@ -46,7 +51,7 @@ CREATE TABLE orders (
     city VARCHAR(100), 
     state VARCHAR(2), 
     zipcode VARCHAR(5),
-    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
    -- FOREIGN KEY (userId) REFERENCES users(id)
 );
 
