@@ -19,16 +19,17 @@
         <hr> 
 
         <nav>
-            <a href="main.php">Products</a> |
-            <a href="cart.php">Cart</a> |
-            <a href="orders.php">Orders</a> |
+
+            <a href="products.php">Products</a> |
 
             <?php if (!empty($_SESSION['isAdmin'])) { ?>
-                <a href="admin/orders.php">Admin</a> |
-                <a href="admin/fulfillment.php">Fulfillment</a> |
+                <a href="admin/orders.php">Orders</a> |
                 <a href="admin/logout.php">Logout</a> 
             <?php } else { ?>
+                <a href="cart/cart.php">Cart</a> |
+                <a href="user/orderTracking.php">Track Order</a> |
                 <a href="admin/login.php">Admin Login</a> 
+
             <?php } ?>
         </nav>
         <hr>
