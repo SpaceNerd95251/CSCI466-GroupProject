@@ -25,8 +25,8 @@ implementation until after grading has been completed.
 
 ## Webpages Needed (HTML/PHP Stuff)
 - [ ] Product page (for product descriptions)
-- [ ] Main storefront pages
-- [ ] Header file (goes on every page)
+- [x] Main storefront pages
+- [x] Header file (goes on every page)
 - [ ] Order page for user
 - [ ] Order page for admin
 - [ ] Shopping cart page
