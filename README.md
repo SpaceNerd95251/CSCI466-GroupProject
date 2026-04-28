@@ -24,10 +24,10 @@ This should include at least 20 different products (of your choice), 5 customers
 implementation until after grading has been completed.
 
 ## Webpages Needed (HTML/PHP Stuff)
-- [ ] Product page (for product descriptions)
+- [x] Product page (for product descriptions)
 - [x] Main storefront pages
 - [x] Header file (goes on every page)
-- [ ] Order page for user
+- [x] Order page for user
 - [ ] Order page for admin
 - [ ] Shopping cart page
 - [ ] Checkout page
