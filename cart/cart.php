@@ -51,6 +51,7 @@
                         <td> 
                             <form method="post" action="updateCart.php" style="display:inline">
                                 <input type="hidden" name="cartId" value="<?php echo $cartItem['id'];?>">
+                                                                             <!-- prevents negative values -->
                                 <input type="hidden" name="quantity" value="<?php echo max(0, $cartItem['quantity'] - 1);?>">
                                 <input type="submit" value="-">
                             </form>
