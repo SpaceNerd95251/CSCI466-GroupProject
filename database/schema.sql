@@ -1,4 +1,3 @@
-
 -- CREATE TABLE users (
  --   id INTEGER AUTO_INCREMENT PRIMARY KEY, 
 --    email VARCHAR(100) NOT NULL UNIQUE, 
@@ -9,10 +8,10 @@
 -- information will be gathered based on state information 
 -- collected from the current html session not a logged in user
 -- customer could decide later to create an account and log in both will work the same 
-DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS orderItems;
 DROP TABLE IF EXISTS shoppingCart;
 DROP TABLE IF EXISTS orders;
-DROP TABLE IF EXISTS orderItems;
+DROP TABLE IF EXISTS products;
 
 CREATE TABLE products ( 
     id INTEGER AUTO_INCREMENT PRIMARY KEY, 

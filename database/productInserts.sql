@@ -1,10 +1,11 @@
 -- resets products in all tables because of product foreign keys
 -- and resets the AUTO_INCREMENT
+DELETE FROM orderItems; 
 DELETE FROM shoppingCart;
 DELETE FROM orders; 
-DELETE FROM orderItems; 
 
-TRUNCATE TABLE products;
+DELETE FROM products;
+ALTER TABLE products AUTO_INCREMENT = 1;
 
 -- All credits to amazon.com for the images, and the book descriptions are paraphrased from product listings 
 -- This data is used exclusively for a course project and not for commercial use

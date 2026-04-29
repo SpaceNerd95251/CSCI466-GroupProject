@@ -14,7 +14,7 @@
     </head>
     <body> 
 
-        <h1> The Store </h1> <!-- this may be changed depending on what we name the store -->
+        <h1>CSCI 466 Book Depot</h1> <!-- this may be changed depending on what we name the store -->
 
         <hr> 
 

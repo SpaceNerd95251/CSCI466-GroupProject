@@ -29,7 +29,7 @@
         <p> Price: $<?php echo number_format($product['price'], 2); ?></p>
         <p> Stock: <?php echo $product['stock']; ?></p>
         <p> 
-            <a href="products.php?id=<?php echo $product['id']?>">View Details</a>
+            <a href="user/productDetails.php?id=<?php echo $product['id']?>">View Details</a>
         </p>
     </section>
 
