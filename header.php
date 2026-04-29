@@ -4,6 +4,7 @@
     if(!isset($_SESSION['sessionId'])) { 
         $_SESSION['sessionId'] = session_id(); 
     }
+    define('BASE_URL', '/~z2071748/CSCI466-GroupProject');
 ?>
 
 <!DOCTYPE html>
@@ -19,16 +20,16 @@
         <hr> 
 
         <nav>
-                <!-- make sure relative paths are correct -->
-            <a href="products.php">Products</a> |
+            <!-- make sure relative paths are correct -->
+            <a href="<?php echo BASE_URL; ?>products.php">Products</a> |
 
             <?php if (!empty($_SESSION['isAdmin'])) { ?>
-                <a href="admin/orders.php">Orders</a> |
-                <a href="admin/logout.php">Logout</a> 
+                <a href="<?php echo BASE_URL; ?>admin/orders.php">Orders</a> |
+                <a href="<?php echo BASE_URL; ?>admin/logout.php">Logout</a> 
             <?php } else { ?>
-                <a href="cart/cart.php">Cart</a> |
-                <a href="user/orderTracking.php">Track Order</a> |
-                <a href="admin/login.php">Admin Login</a> 
+                <a href="<?php echo BASE_URL; ?>cart/cart.php">Cart</a> |
+                <a href="<?php echo BASE_URL; ?>user/orderTracking.php">Track Order</a> |
+                <a href="<?php echo BASE_URL; ?>admin/login.php">Admin Login</a> 
 
             <?php } ?>
         </nav>
