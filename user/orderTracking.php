@@ -40,7 +40,7 @@
     <form method="post"> 
         <p>
              Order Number: 
-            <input type="text" name="orderNunber" required> 
+            <input type="text" name="orderNumber" required> 
         </p>
         <p> 
             Email: 
