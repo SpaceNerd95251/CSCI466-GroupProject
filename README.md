@@ -42,3 +42,5 @@ implementation until after grading has been completed.
 - Fix relative path issues in header.php
 - Files that still need to be checked in hopper
     - addToCart.php
+ 
+- Add collective order totals so user can see total amount paid accross all orders.
