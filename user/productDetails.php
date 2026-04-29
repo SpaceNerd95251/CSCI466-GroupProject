@@ -31,7 +31,7 @@
 <h2><?php echo $product['name']; ?></h2>
     
     <img 
-        src="<?php echo htmlspecialchars($product['image'] ?: 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'); ?>" 
+        src="<?php echo htmlspecialchars($product['imageUrl'] ?: 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'); ?>" 
         alt="<?php echo $product['name']; ?>" 
         width="200"  
         height="200"
