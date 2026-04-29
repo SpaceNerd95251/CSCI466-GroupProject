@@ -31,3 +31,14 @@ implementation until after grading has been completed.
 - [ ] Order page for admin
 - [ ] Shopping cart page
 - [ ] Checkout page
+
+## Fixes To Do
+
+- Add stock checks to:
+  - cart.php
+  - updateCart.php
+  - addToCart.php
+
+- Fix relative path issues in header.php
+- Files that still need to be checked in hopper
+    - addToCart.php
