@@ -79,7 +79,7 @@
                  </tr>
         </table>
 
-            <p><a href="processOrder.php">Checkout</a></p>
+            <p><a href="checkout.php">Checkout</a></p>
             <p><a href="../products.php">Continue Shopping</a></p>
     
     <?php } ?>
