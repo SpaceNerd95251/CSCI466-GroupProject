@@ -19,7 +19,7 @@
         <hr> 
 
         <nav>
-
+                <!-- make sure relative paths are correct -->
             <a href="products.php">Products</a> |
 
             <?php if (!empty($_SESSION['isAdmin'])) { ?>

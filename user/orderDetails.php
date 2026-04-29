@@ -21,6 +21,7 @@
     $stmt->execute([$orderId]); 
     $order = $stmt->fetch(PDO::FETCH_ASSOC); 
 
+    //check if order exist 
     if (!$order) { 
         echo "<p>Order not found</p>";
         require '../footer.php';
@@ -46,6 +47,7 @@
     <p><strong>Order Date:</strong> <?php echo $dateTime->format("F j, Y g:i A"); ?></p>
  
     <h3>Items Ordered</h3>
+    <!-- check if order contained items -->
     <?php if (count($orderItems) === 0) { ?>
         <p>No items in this order.</p>
     <?php } else { ?>
@@ -59,6 +61,8 @@
 
             <?php 
                  $total = 0; 
+                 // loops through all order items puts them in tables 
+                 // calculates total 
                  foreach ($orderItems as $orderItem) { 
                     $subtotal = $orderItem['price'] * $orderItem['quantity'];
                     $total += $subtotal;
@@ -72,6 +76,7 @@
             <?php } ?>
 
                  <tr>
+                    <!-- total takes up 3 columns -->
                     <td colspan="3"><strong>Total</strong></td>
                     <td><strong>$<?php echo number_format($total, 2); ?></strong></td>
                  </tr>

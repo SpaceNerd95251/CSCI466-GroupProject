@@ -12,7 +12,7 @@
         require '../footer.php';
         exit; 
     }
-
+    // gets id from products
     $id = $_GET["id"];
 
     $stmt = $pdo->prepare("SELECT * FROM products WHERE id = ?"); 

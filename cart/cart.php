@@ -8,7 +8,7 @@
     require '../header.php'; 
     require '../database/database.php'; 
 
-
+    // session is started in header file 
     $sessionId = $_SESSION["sessionId"];
 
     $stmt = $pdo->prepare("
