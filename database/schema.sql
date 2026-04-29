@@ -42,7 +42,6 @@ CREATE TABLE orders (
     orderNumber VARCHAR(10) NOT NULL UNIQUE, 
     -- will be used to see find past orders when not logged in
     custEmail VARCHAR(100) NOT NULL, 
-    userId INTEGER NULL,
     totalPrice DECIMAL(10, 2), 
     `status` ENUM('Processing', 'Shipping', 'Delivered') DEFAULT 'Processing',
     shippingName VARCHAR(100), 
@@ -50,8 +49,8 @@ CREATE TABLE orders (
     city VARCHAR(100), 
     state VARCHAR(2), 
     zipcode VARCHAR(5),
+    -- note billing information will be collected but not stored in the database for security reasons
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-   -- FOREIGN KEY (userId) REFERENCES users(id)
 );
 
 CREATE TABLE orderItems ( 
