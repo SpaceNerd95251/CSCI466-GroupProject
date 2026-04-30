@@ -30,12 +30,8 @@ implementation until after grading has been completed.
 - [x] Order page for user
 - [x] Order page for admin
 - [x] Shopping cart page
-- [ ] Checkout page
+- [x] Checkout page
 
 ## Fixes To Do
 
-- Add stock checks to:
-  - cart.php
-  - updateCart.php
-  - addToCart.php
-- Make so it removes stock once a order has been ordered
+Make it so it list all orders and order totals 
