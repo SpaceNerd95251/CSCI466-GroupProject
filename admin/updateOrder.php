@@ -19,13 +19,14 @@
 
     require '../database/database.php';
 
+    // notes equals orginal value in entered value is null
     if($_SERVER['REQUEST_METHOD'] == 'POST') { 
         $orderId = $_POST['orderId']; 
         $status = $_POST['status']; 
         $notes = $_POST['notes'] ?? null;
             $stmt = $pdo->prepare("
-            UPDATE orders 
-            SET status = ?, notes = ? 
+            UPDATE orders
+            SET status = ?, notes = COALESCE(NULLIF(?, ''), notes) 
             WHERE id = ?
             ");
             $stmt->execute([$status, $notes, $orderId]);
