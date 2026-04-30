@@ -14,6 +14,13 @@
         if($quantity < 1) { 
             $quantity = 1; 
         }
+        $stmt = $pdo->prepare('
+        SELECT stock 
+        FROM products
+        WHERE id = ?
+        '); 
+        $stmt->execute([$productId]);
+        $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // checks if product is already in cart (UPDATE vs. INSERT)
         $stmt = $pdo->prepare('
@@ -26,8 +33,8 @@
         $cartItem = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($cartItem) { 
-            $newQuantity = $cartItem['quantity'] + $quantity; 
-
+            $newQuantity = min($product['stock'], $cartItem['quantity'] + $quantity); 
+            
             // updates shopping cart table with new quantity
             $stmt = $pdo->prepare('
             UPDATE shoppingCart 
@@ -42,7 +49,7 @@
             (sessionId, productId, quantity)
             VALUES (?, ?, ?)
             ');
-            $stmt->execute([$sessionId, $productId, $quantity]);
+            $stmt->execute([$sessionId, $productId, min($product['stock'], $quantity)]);
         }
     }
 

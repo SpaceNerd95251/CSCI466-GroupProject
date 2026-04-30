@@ -28,8 +28,8 @@ implementation until after grading has been completed.
 - [x] Main storefront pages
 - [x] Header file (goes on every page)
 - [x] Order page for user
-- [ ] Order page for admin
-- [ ] Shopping cart page
+- [x] Order page for admin
+- [x] Shopping cart page
 - [ ] Checkout page
 
 ## Fixes To Do
@@ -38,7 +38,4 @@ implementation until after grading has been completed.
   - cart.php
   - updateCart.php
   - addToCart.php
-
-- Fix relative path issues in header.php
-- Files that still need to be checked in hopper
-    - addToCart.php
+- Make so it removes stock once a order has been ordered

@@ -1,16 +1,25 @@
 <?php 
-     $title = "Order Confirmation"; 
+    $title = "Order Confirmation"; 
      
-     require '../header.php';
-     require '../database/database.php';
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
 
-     $sessionId = $_SESSION["sessionId"];
-
-     if($_SERVER['REQUEST_METHOD'] != 'POST') {
+    if($_SERVER['REQUEST_METHOD'] != 'POST') {
+        require '../header.php';
         echo "<p>Invalid request.</p>"; 
         require '../footer.php';
         exit;
-     }
+    }
+    require '../header.php';
+    require '../database/database.php';
+
+    if (!isset($_SESSION["sessionId"])) {
+    echo "<p>Session expired. Please return to your cart.</p>";
+    require '../footer.php';
+    exit;
+    }
+
+    $sessionId = $_SESSION["sessionId"];
 
      $name = $_POST['name'];
      $email = $_POST['email'];
@@ -19,7 +28,7 @@
      $state = $_POST['state'];
      $zipcode = $_POST['zipcode'];
      // create random order number for order retrieval 
-     $orderNumber = "ORD" . time() . rand(100, 999);
+     $orderNumber = "ORD" . rand(1000, 9999);
 
      // fetches cart items for later orderItems insertion and safe total price calculation
      $stmt = $pdo->prepare('
@@ -60,6 +69,13 @@
             VALUES (?, ?, ?)
         ');
         $stmt->execute([$orderId, $cartItem['productId'], $cartItem['quantity']]);
+        // updates stock after order is completed 
+        $stmt = $pdo->prepare('
+        UPDATE products 
+        SET stock = stock - ?
+        WHERE id = ?
+        ');
+        $stmt->execute([$cartItem['quantity'], $cartItem['productId']]);
 
     }
 
@@ -85,7 +101,7 @@
         <p>Please save your order number. You will need it with your email to track your order status. </p>
 
         <p>
-            <a href="orderDetails.php?orderId=<?php echo $orderId; ?>">View Order Details</a>
+            <a href="../user/orderDetails.php?orderId=<?php echo $orderId; ?>">View Order Details</a>
         </p>
         <p>
             <a href="../products.php">Continue Shopping</a>

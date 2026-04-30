@@ -17,7 +17,7 @@
         SELECT id 
         FROM orders
         WHERE orderNumber = ? 
-        AND email = ?
+        AND custEmail = ?
         ');
         $stmt->execute([$orderNumber, $email]); 
         $order = $stmt->fetch(PDO::FETCH_ASSOC);

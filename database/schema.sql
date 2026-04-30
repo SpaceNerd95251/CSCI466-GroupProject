@@ -39,11 +39,12 @@ CREATE TABLE shoppingCart (
 CREATE TABLE orders ( 
     id INTEGER AUTO_INCREMENT PRIMARY KEY, 
    -- will be generated based on a completed order used as identifying information for the user 
-    orderNumber VARCHAR(10) NOT NULL UNIQUE, 
+    orderNumber VARCHAR(25) NOT NULL UNIQUE, 
     -- will be used to see find past orders when not logged in
     custEmail VARCHAR(100) NOT NULL, 
     totalPrice DECIMAL(10, 2), 
     `status` ENUM('Processing', 'Shipping', 'Delivered') DEFAULT 'Processing',
+    notes text,
     shippingName VARCHAR(100), 
     streetAddress VARCHAR(100), 
     city VARCHAR(100), 

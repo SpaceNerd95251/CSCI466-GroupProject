@@ -13,7 +13,7 @@
 
     $stmt = $pdo->prepare("
         SELECT shoppingCart.id, shoppingCart.productId, 
-        shoppingCart.quantity, products.name, products.price
+        shoppingCart.quantity, products.name, products.price, products.stock
         FROM shoppingCart
         JOIN products ON shoppingCart.productId = products.id
         WHERE shoppingCart.sessionId = ?
@@ -47,7 +47,7 @@
                     <tr>
                         <td><?php echo $cartItem['name']; ?></td>
                         <td>$<?php echo number_format($cartItem['price'], 2); ?></td>
-                        <td><?php echo $cartItem['quantity'];?></td>
+                        <td><?php echo max($cartItem['stock'], $cartItem['quantity']);?></td>
                         <td>$<?php echo number_format($subtotal, 2); ?></td>
                     </tr>
 
@@ -61,7 +61,7 @@
 
                 <h3><strong>Shipping Information</strong></h3>
 
-                <form method="post" action="processOrder.php"> 
+                <form method="POST" action="processOrder.php"> 
                     <p>
                         Name:
                         <input type="text" name="name" required>
@@ -76,15 +76,15 @@
                     </p>
                     <p> 
                         City:
-                        <input type="text" name="city" required>
+                        <input type="text" name="city"  required>
                     </p>
                     <p> 
                         State:
-                        <input type="text" name="state" required>
+                        <input type="text" name="state" placeholder="XX" maxlength="2" required>
                     </p>
                     <p> 
                         Zip Code:
-                        <input type="text" name="zipcode" required>
+                        <input type="text" name="zipcode" maxlength="5" required>
                     </p>
 
                     <h3>Payment Information</h3>
@@ -95,11 +95,11 @@
                     </p>
                     <p> 
                         Expiration Date:
-                        <input type="text" name="expirationDate" placeholder="MM/YY" required>
+                        <input type="text" name="expirationDate" placeholder="MM/YY" maxlength="5" required>
                     </p>
                     <p> 
                         CVV:
-                        <input type="text" name="cvv" required> 
+                        <input type="text" name="cvv" maxlength="3" required> 
                     </p>
                     <p>
                         <input type="submit" value="Place Order">

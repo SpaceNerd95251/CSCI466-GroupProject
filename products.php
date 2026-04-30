@@ -15,7 +15,6 @@
 
 <!-- loops through and displays all products with links to more information -->
 <?php foreach ($products as $product) { ?>
-
      <section>
         <h3><?php echo $product['name']; ?></h3>
 
@@ -27,10 +26,15 @@
         >
 
         <p> Price: $<?php echo number_format($product['price'], 2); ?></p>
-        <p> Stock: <?php echo $product['stock']; ?></p>
-        <p> 
-            <a href="user/productDetails.php?id=<?php echo $product['id']?>">View Details</a>
-        </p>
+        <?php 
+            if ($product["stock"] === 0) {
+                echo "<p>Out of Stock</p>";
+                echo "<p>Product Unavailable</p>";
+            } else {
+                echo "<p> Stock: " . $product['stock'] . "</p>";
+                echo '<p> <a href="user/productDetails.php?id=' . $product['id'] . '">View Details</a></p>';
+            } ?>
+ 
     </section>
 
     <hr>

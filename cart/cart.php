@@ -13,7 +13,7 @@
 
     $stmt = $pdo->prepare("
         SELECT shoppingCart.id, shoppingCart.productId, 
-        shoppingCart.quantity, products.name, products.price
+        shoppingCart.quantity, products.name, products.price, products.stock
         FROM shoppingCart
         JOIN products ON shoppingCart.productId = products.id
         WHERE shoppingCart.sessionId = ?
@@ -58,7 +58,7 @@
                             <?php echo $cartItem['quantity'];?> 
                             <form method="post" action="updateCart.php" style="display:inline">
                                 <input type="hidden" name="cartId" value="<?php echo $cartItem['id'];?>">
-                                <input type="hidden" name="quantity" value="<?php echo $cartItem['quantity'] + 1;?>">
+                                <input type="hidden" name="quantity" value="<?php echo min($cartItem['stock'], $cartItem['quantity'] + 1);?>">
                                 <input type="submit" value="+"> 
                             </form>
                         </td>

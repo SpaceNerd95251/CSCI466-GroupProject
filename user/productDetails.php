@@ -42,7 +42,7 @@
 
      <form method="post" action="../cart/addToCart.php">
         <input type="hidden" name="productId" value="<?php echo $product['id']; ?>">
-        <input type="number" name="quantity" value="1" min="1">
+        <input type="number" name="quantity" value="1" min="1" max="<?php echo $product['stock']; ?>">
         <input type="submit" value="Add to Cart">
      </form> 
 
