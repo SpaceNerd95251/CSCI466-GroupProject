@@ -1,8 +1,8 @@
 <?php 
     $title = "Order Confirmation"; 
      
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
+    //ini_set('display_errors', 1);
+    //error_reporting(E_ALL);
 
     if($_SERVER['REQUEST_METHOD'] != 'POST') {
         require '../header.php';

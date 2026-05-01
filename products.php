@@ -20,7 +20,7 @@
 
         <img 
             src="<?php echo htmlspecialchars($product['imageUrl'] ?: 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg'); ?>" 
-            alt="<?php echo $product['name']; ?>" 
+            alt="<?php echo htmlspecialchars($product['name']); ?>" 
             width="200"  
             height="200"
         >

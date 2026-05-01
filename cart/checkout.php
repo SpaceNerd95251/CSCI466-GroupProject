@@ -45,7 +45,7 @@
                     $total += $subtotal;
             ?>
                     <tr>
-                        <td><?php echo $cartItem['name']; ?></td>
+                        <td><?php echo htmlspecialchars($cartItem['name']); ?></td>
                         <td>$<?php echo number_format($cartItem['price'], 2); ?></td>
                         <td><?php echo max($cartItem['stock'], $cartItem['quantity']);?></td>
                         <td>$<?php echo number_format($subtotal, 2); ?></td>

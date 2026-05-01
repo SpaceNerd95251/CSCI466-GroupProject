@@ -46,7 +46,7 @@
                     $total += $subtotal;
                 ?>
                     <tr>
-                        <td><?php echo $cartItem['name']; ?></td>
+                        <td><?php echo htmlspecialchars($cartItem['name']); ?></td>
                         <td>$<?php echo number_format($cartItem['price'], 2); ?></td>
                         <td> 
                             <form method="post" action="updateCart.php" style="display:inline">

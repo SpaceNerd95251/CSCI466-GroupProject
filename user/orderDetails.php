@@ -27,6 +27,18 @@
         require '../footer.php';
         exit; 
     }
+    // gets all previous orders by email once they have been found to be a customer 
+    // excludes the orginal order 
+    $stmt = $pdo->prepare("
+        SELECT id, orderNumber, status, totalPrice, createdAt
+        FROM orders
+        WHERE custEmail = ?
+        AND id != ?
+        ORDER BY createdAt DESC
+    ");
+    $stmt->execute([$order['custEmail'], $orderId]);
+    $previousOrders = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     // get all products in the order
     $stmt = $pdo->prepare("
         SELECT products.name, products.price, orderItems.quantity
@@ -47,6 +59,10 @@
     <p><strong>Order Date:</strong> <?php echo $dateTime->format("F j, Y g:i A"); ?></p>
  
     <h3>Items Ordered</h3>
+
+    <?php 
+        $total = 0; 
+    ?>
     <!-- check if order contained items -->
     <?php if (count($orderItems) === 0) { ?>
         <p>No items in this order.</p>
@@ -60,7 +76,6 @@
             </tr>
 
             <?php 
-                 $total = 0; 
                  // loops through all order items puts them in tables 
                  // calculates total 
                  foreach ($orderItems as $orderItem) { 
@@ -68,7 +83,7 @@
                     $total += $subtotal;
                 ?>
                     <tr>
-                        <td><?php echo $orderItem['name']; ?></td>
+                        <td><?php echo htmlspecialchars($orderItem['name']); ?></td>
                         <td>$<?php echo number_format($orderItem['price'], 2); ?></td>
                         <td><?php echo $orderItem['quantity']; ?></td>
                         <td>$<?php echo number_format($subtotal, 2); ?></td>
@@ -81,7 +96,64 @@
                     <td><strong>$<?php echo number_format($total, 2); ?></strong></td>
                  </tr>
         </table>
+    <?php } ?>
+
+<h3>All Orders for <?php echo htmlspecialchars($order['custEmail']); ?></h3>
+
+    <?php if (count($previousOrders) === 0) { ?>
+
+        <p>No previous orders found for this email.</p>
+        <p>
+            <strong>Total Spent Across All Orders:</strong>
+            $<?php echo number_format($total, 2); ?>
+        </p>
+    <?php } else { ?>
+
+        <?php 
+            $totalSpent = 0;
+
+            foreach ($previousOrders as $previousOrder) {
+                $totalSpent += $previousOrder['totalPrice'];
+            }
+            $totalSpent += $total;
+        ?>
+
+        <table>
+            <tr>
+                <th>Order Number</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>Order Date</th>
+                <th>View</th>
+            </tr>
+
+            <?php foreach ($previousOrders as $previousOrder) { 
+                $previousDate = new DateTime($previousOrder['createdAt']);
+            ?>
+
+                <tr>
+                    <td><?php echo htmlspecialchars($previousOrder['orderNumber']); ?></td>
+                    <td><?php echo htmlspecialchars($previousOrder['status']); ?></td>
+                    <td>$<?php echo number_format($previousOrder['totalPrice'], 2); ?></td>
+                    <td><?php echo $previousDate->format("F j, Y g:i A"); ?></td>
+                    <td>
+                        <a href="orderDetails.php?orderId=<?php echo $previousOrder['id']; ?>">
+                            View
+                        </a>
+                    </td>
+                </tr>
+
             <?php } ?>
+
+        </table>
+
+        <p>
+            <strong>Total Spent Across All Orders: </strong>
+            $<?php echo number_format($totalSpent, 2); ?>
+        </p>
+
+    <?php } ?>
+
 
             <p><a href="orderTracking.php">Back to Order Tracking</a></p>
                     
