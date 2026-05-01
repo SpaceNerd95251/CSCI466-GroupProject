@@ -35,3 +35,50 @@ VALUES
 ("Powers and Thrones", "A telling of the history of the middle ages and how they relate to today", 21.99, 32, "https://m.media-amazon.com/images/I/91Eja+h3NxL._AC_UL320_.jpg"), 
 ("Duty, Honor, Country and Life", "A motivational piece on the values of the American People", 18.00, 0, "https://m.media-amazon.com/images/I/81diDR0CirL._AC_UL320_.jpg");
 
+INSERT INTO orders
+(orderNumber, custEmail, totalPrice, shippingName, streetAddress, city, state, zipcode)
+VALUES
+('ORD2341', 'john@example.com', 44.97, 'John Smith', '123 Main St', 'DeKalb', 'IL', '60115'),
+
+('ORD9834', 'john@example.com', 57.98, 'John Smith', '123 Main St', 'DeKalb', 'IL', '60115'),
+
+('ORD4321', 'john@example.com', 29.00, 'John Smith', '123 Main St', 'DeKalb', 'IL', '60115'),
+
+('ORD4000', 'sarah@example.com', 76.96, 'Sarah Johnson', '456 Oak Ave', 'Sycamore', 'IL', '60178'),
+
+('ORD1111', 'mike@example.com', 33.98, 'Mike Brown', '789 Pine Rd', 'Chicago', 'IL', '60601'),
+
+('ORD1000', 'emily@example.com', 111.96, 'Emily Davis', '321 Maple Dr', 'Naperville', 'IL', '60540'),
+
+('ORD1987', 'bill@example.com', 79.97, 'Bill Doe', '321 Main St', 'DeKalb', 'IL', '60115');
+
+INSERT INTO orderItems
+(orderId, productId, quantity)
+VALUES
+
+((SELECT id FROM orders WHERE orderNumber = 'ORD2341'), 1, 2),
+((SELECT id FROM orders WHERE orderNumber = 'ORD2341'), 2, 1),
+
+
+((SELECT id FROM orders WHERE orderNumber = 'ORD9834'), 3, 1),
+((SELECT id FROM orders WHERE orderNumber = 'ORD9834'), 4, 2),
+
+((SELECT id FROM orders WHERE orderNumber = 'ORD4321'), 5, 1),
+
+
+((SELECT id FROM orders WHERE orderNumber = 'ORD4000'), 6, 2),
+((SELECT id FROM orders WHERE orderNumber = 'ORD4000'), 7, 1),
+((SELECT id FROM orders WHERE orderNumber = 'ORD4000'), 8, 1),
+
+
+((SELECT id FROM orders WHERE orderNumber = 'ORD1111'), 9, 1),
+((SELECT id FROM orders WHERE orderNumber = 'ORD1111'), 10, 1),
+
+
+((SELECT id FROM orders WHERE orderNumber = 'ORD1000'), 11, 3),
+((SELECT id FROM orders WHERE orderNumber = 'ORD1000'), 12, 1),
+
+
+((SELECT id FROM orders WHERE orderNumber = 'ORD1987'), 13, 2),
+((SELECT id FROM orders WHERE orderNumber = 'ORD1987'), 14, 1),
+((SELECT id FROM orders WHERE orderNumber = 'ORD1987'), 15, 1);

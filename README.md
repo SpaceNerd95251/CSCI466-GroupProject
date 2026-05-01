@@ -16,10 +16,10 @@ from before. We will check to make sure it matches, so make sure that any change
 schema here.
 - [x] 4. An SQL script, suitable to run with MariaDB, containing the DML code to create the database designed and detailed in the
 previous portions.
-- [ ] 5. Another SQL script, suitable to run with MariaDB, that inserts the sample data needed to make your application run properly.
+- [x] 5. Another SQL script, suitable to run with MariaDB, that inserts the sample data needed to make your application run properly.
 This should include at least 20 different products (of your choice), 5 customers, and at least one order per customer.
-- [ ] 6. A tarball or zip file containing the PHP code and any additional web-facing files that implement the application.
-- [ ] 7. A web link to your group’s application running on the student web server. This can be served from any of the group members'
+- [x] 6. A tarball or zip file containing the PHP code and any additional web-facing files that implement the application.
+- [x] 7. A web link to your group’s application running on the student web server. This can be served from any of the group members'
 `public_html` on turing/hopper, but it does need to be working there to facilitate grading. Make sure not to delete the
 implementation until after grading has been completed.
 
@@ -33,5 +33,3 @@ implementation until after grading has been completed.
 - [x] Checkout page
 
 ## Fixes To Do
-
-Make it so it list all orders and order totals 

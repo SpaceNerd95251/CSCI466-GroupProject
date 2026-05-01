@@ -44,7 +44,7 @@ CREATE TABLE orders (
     custEmail VARCHAR(100) NOT NULL, 
     totalPrice DECIMAL(10, 2), 
     `status` ENUM('Processing', 'Shipping', 'Delivered') DEFAULT 'Processing',
-    notes text,
+    notes text DEFAULT NULL,
     shippingName VARCHAR(100), 
     streetAddress VARCHAR(100), 
     city VARCHAR(100), 
